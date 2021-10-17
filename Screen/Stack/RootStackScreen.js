@@ -13,7 +13,9 @@ import SearchScreen from '../SearchScreen';
 const RootStack = createStackNavigator();
 
 const RootStackScreen = ({navigation}) => (
-    <RootStack.Navigator  headerShown = 'false'>
+    <RootStack.Navigator   screenOptions={{
+        headerShown: false
+      }}>
         <RootStack.Screen name="SplashScreen" component={SplashScreen}/>
         <RootStack.Screen name="SignInScreen" component={SignInScreen}/>
         <RootStack.Screen name="SignUpScreen" component={SignUpScreen}/>

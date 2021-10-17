@@ -9,6 +9,7 @@ const CategoryScreen = ({navigation,route}) => {
 
 const id= route.params.id
 const[category,setCategory]=useState([]);
+const[infoShop,setInfoShop]=useState([]);
 const[idCategory,setIdCategory]=useState(id)
 
 const[idfood,setIdFood]=useState([]);
@@ -36,6 +37,25 @@ useEffect(()=>{
 })
     .catch((err)=>console.error(err))
 }, [])
+
+const GetStatusFood=(statusfood) => {
+	if(statusfood){
+		return 'Còn hàng'
+	}else{
+		return 'Hết hàng'
+	}
+	}
+
+// const GetInfoShop=(idshop) => {
+// const id = idshop
+// 	fetch('http://10.0.2.2:3000/category/'+id)
+// 	.then((res)=>res.json())
+//     .then((dataShop)=>{
+// 		setInfoShop(dataShop.infoShop)
+//   })
+// 	.catch((err)=>console.error(err))
+//   	return infoShop.nameshop
+// }
 
 const renderItem = ({item})=>{
 	const swipeoutSettings = {
@@ -65,6 +85,8 @@ const renderItem = ({item})=>{
             <View>
                 <Text style={{ marginLeft: 10, fontSize: 20 }}>{item.namefood}</Text>
                 <Text style={{ marginLeft: 10 }}>{item.pricefood}</Text>
+				{/* <Text style={{ marginLeft: 10 }}>{GetInfoShop(item.idshop)}</Text> */}
+				<Text style={{ marginLeft: 10 }}>{GetStatusFood(item.statusfood)}</Text>
             </View>
         </View>
     </Swipeout>

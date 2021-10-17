@@ -113,9 +113,10 @@ const SignInScreen = ({navigation}) => {
             navigation.navigate('HomeScreen')
             return;
            }else{
-            Alert.alert('Invalid User!', 'username or password is incorrect.', [
-                {text: 'Okay'}
-            ]);
+            // Alert.alert('Invalid User!', 'username or password is incorrect.', [
+            //     {text: 'Okay'}
+            // ]);
+            showDialogLoginFail()
             return;
            }
     })

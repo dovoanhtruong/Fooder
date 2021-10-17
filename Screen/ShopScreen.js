@@ -40,6 +40,16 @@ useEffect(()=>{
     .catch((err)=>console.error(err))
 }, [])
 
+const GetStatusFood=(statusfood) => {
+if(statusfood){
+	return 'Còn hàng'
+}else{
+	return 'Hết hàng'
+}
+}
+
+
+
 
 
 const renderItem = ({item})=>{
@@ -70,6 +80,7 @@ const renderItem = ({item})=>{
             <View>
                 <Text style={{ marginLeft: 10, fontSize: 20 }}>{item.namefood}</Text>
                 <Text style={{ marginLeft: 10 }}>{item.pricefood}</Text>
+				<Text style={{ marginLeft: 10 }}>{GetStatusFood(item.statusfood)}</Text>
             </View>
         </View>
     </Swipeout>
